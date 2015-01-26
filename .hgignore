@@ -3,4 +3,5 @@ syntax: glob
 *.zip
 *.o
 *.swp
+*.orig
 .*\#
