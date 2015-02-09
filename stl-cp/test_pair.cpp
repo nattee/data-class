@@ -2,6 +2,8 @@
 #include <assert.h>
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
 
 using namespace CP;
 
@@ -65,6 +67,17 @@ bool test3() {
 }
 
 bool test4() {
+  std::vector<CP::pair<int,std::string> > v;
+  v.push_back( CP::pair<int,std::string>(10,"asdf"));
+  v.push_back( CP::pair<int,std::string>(10,"zzz"));
+  v.push_back( CP::pair<int,std::string>(10,"ddd"));
+  v.push_back( CP::pair<int,std::string>(5,"asdf"));
+  v.push_back( CP::pair<int,std::string>(3,"X"));
+  v.push_back( CP::pair<int,std::string>(1,"asdf"));
+  std::sort(v.begin(),v.end());
+  for (size_t i = 0;i < v.size();i++) {
+    std::cout << v[i].first << " " << v[i].second << std::endl;
+  }
   return true;
 }
 
@@ -74,7 +87,7 @@ int main() {
   if (test1()) std::cout << "---------------------------------------- Test1 OK!" << std::endl;
   if (test2()) std::cout << "---------------------------------------- Test2 OK!" << std::endl;
   if (test3()) std::cout << "---------------------------------------- Test3 OK!" << std::endl;
-  if (test3()) std::cout << "---------------------------------------- Test4 OK!" << std::endl;
+  if (test4()) std::cout << "---------------------------------------- Test4 OK!" << std::endl;
 
 
   return 0;

@@ -41,12 +41,13 @@ class pair
     }
 
     // comparison operator
-    bool operator<(const pair<T1,T2> &other) {
+    bool operator<(const pair<T1,T2>& other) const {
       return ((first < other.first) ||
               (first == other.first && second < other.second));
     }
 
 };
+
 
 }
 
