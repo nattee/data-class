@@ -30,22 +30,16 @@ bool test1() {
 
 
 bool test2() {
-  CP::pair<int,std::string> a;
-  a.first = 10;
-  a.second = "vishnu";
+  CP::pair<int,std::string> a(10,vishnu);
   std::cout << "a = " << a.first << "," << a.second << std::endl;
 
-  CP::pair<int,std::string> b;
-  b.first = 10;
-  b.second = "vishnu";
-  std::cout << "b = " << b.first << "," << b.second << std::endl;
-
-  
+  CP::pair<int,std::string> b(a);
   CP::pair<int,std::string> c;
+  std::cout << "a == b? " << (a == b ? "YES" : "NO")  << std::endl;
   c = a;
-  std::cout << "a == b? " << (a == c ? "YES" : "NO")  << std::endl;
+  std::cout << "a == c? " << (a == c ? "YES" : "NO")  << std::endl;
   c.second = "abc";
-  std::cout << "a == b? " << (a == c ? "YES" : "NO")  << std::endl;
+  std::cout << "a == c? " << (a == c ? "YES" : "NO")  << std::endl;
   return true;
 }
 
