@@ -126,11 +126,11 @@ class vector
     }
 
     T& operator[](int index) {
-      return at(index);
+      return mData[index];
     }
 
     T& operator[](int index) const {
-      return at(index);
+      return mData[index];
     }
 
     //----------------- modifier -------------
