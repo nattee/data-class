@@ -8,20 +8,23 @@
 using namespace CP;
 
 bool test1() {
+  //default constructor
   CP::pair<int,int> a;
   std::cout << "a = " << a.first << "," << a.second << std::endl;
   a.first = 1;
   a.second = 2;
   std::cout << "a = " << a.first << "," << a.second << std::endl;
 
+  //copy constructor
   CP::pair<int,int> b(a);
   std::cout << "b = " << b.first << "," << b.second << std::endl;
 
+  //assignment operator
   CP::pair<int,int> c;
   c = a;
   std::cout << "c = " << c.first << "," << c.second << std::endl;
 
-
+  //custom constructor
   CP::pair<int,int> d(10,20);
   std::cout << "d = " << d.first << "," << d.second << std::endl;
   return true;
@@ -30,7 +33,7 @@ bool test1() {
 
 
 bool test2() {
-  CP::pair<int,std::string> a(10,vishnu);
+  CP::pair<int,std::string> a(10,"vishnu");
   std::cout << "a = " << a.first << "," << a.second << std::endl;
 
   CP::pair<int,std::string> b(a);
@@ -82,7 +85,5 @@ int main() {
   if (test2()) std::cout << "---------------------------------------- Test2 OK!" << std::endl;
   if (test3()) std::cout << "---------------------------------------- Test3 OK!" << std::endl;
   if (test4()) std::cout << "---------------------------------------- Test4 OK!" << std::endl;
-
-
   return 0;
 }
