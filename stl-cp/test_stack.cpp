@@ -41,6 +41,7 @@ bool test2() {
 
   try {
     int x = s.top();
+    //we should get exception here
     std::cout << "x = " << x << std::endl;
     s.pop();
   } catch (std::exception &e) {

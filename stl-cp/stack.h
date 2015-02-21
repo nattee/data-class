@@ -69,7 +69,7 @@ class stack
     }
 
     //----------------- access -----------------
-    const T& top() {
+    const T& top() const{
       if (size() == 0) throw std::out_of_range("index of out range") ;
       return mData[mSize-1];
     }
