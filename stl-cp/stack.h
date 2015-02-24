@@ -25,6 +25,13 @@ class stack
       mCap = capacity;
     }
 
+    void ensureCapacity(size_t capacity) {
+      if (capacity > mCap) {
+        size_t s = (capacity > 2 * mCap) ? capacity : 2 * mCap;
+        expand(s);
+      }
+    }
+
   public:
     //-------------- constructor ----------
 
@@ -76,8 +83,7 @@ class stack
 
     //----------------- modifier -------------
     void push(const T& element) {  // Theta(n)
-      if (mSize + 1 > mCap) 
-        expand(mCap * 2);
+      ensureCapacity(mSize + 1);
       mData[mSize] = element;
       mSize++;
     }

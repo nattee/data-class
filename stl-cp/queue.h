@@ -28,6 +28,13 @@ class queue
       mFront = 0;
     }
 
+    void ensureCapacity(size_t capacity) {
+      if (capacity > mCap) {
+        size_t s = (capacity > 2 * mCap) ? capacity : 2 * mCap;
+        expand(s);
+      }
+    }
+
 
   public:
     //-------------- constructor ----------
@@ -86,8 +93,7 @@ class queue
 
     //----------------- modifier -------------
     void push(const T& element) {
-      if (mSize + 1 > mCap) 
-        expand(mCap * 2);
+      ensureCapacity(mSize+1);
       mData[(mFront + mSize) % mCap] = element;
       mSize++;
     }
