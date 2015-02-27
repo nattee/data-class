@@ -34,6 +34,13 @@ class vector
       mCap = capacity;
     }
 
+    void ensureCapacity(size_t capacity) {
+      if (capacity > mCap) {
+        size_t s = (capacity > 2 * mCap) ? capacity : 2 * mCap;
+        expand(s);
+      }
+    }
+
   public:
     //-------------- constructor & copy operator ----------
 
@@ -144,8 +151,7 @@ class vector
 
     iterator insert(iterator it,const T& element) {
       size_t pos = it - begin();
-      if (mSize + 1 > mCap)
-        expand(2 * mCap);
+      ensureCapacity(mSize + 1);
       for(size_t i = mSize;i > pos;i--) {
         mData[i] = mData[i-1];
       }
