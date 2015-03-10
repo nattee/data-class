@@ -81,7 +81,6 @@ class vector
     }
 
     ~vector() {
-      clear();
       delete [] mData;
     }
 
