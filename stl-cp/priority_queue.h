@@ -30,7 +30,7 @@ class priority_queue
     void fixUp(size_t idx) {
       T tmp = mData[idx];
       while (idx > 0) {
-        size_t p = idx / 2;
+        size_t p = (idx - 1) / 2;
         if ( mLess(tmp,mData[p]) ) break;
         mData[idx] = mData[p];
         idx = p;
