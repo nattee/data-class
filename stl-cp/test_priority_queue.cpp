@@ -91,21 +91,21 @@ bool test3() {
   return true;
 }
 
-typedef bool(*CompFunctor)(int, int); // Function pointer type named "CompFunctor" 
+typedef bool(*CompFunctor)(const int&, const int&); // Function pointer type named "CompFunctor" 
 
-bool Compare(const int& a,const int& b)    // The actual comparator function matching the CompFunctor signature
+bool Compare(const int &a,const int &b)    // The actual comparator function matching the CompFunctor signature
 {
   return a > b;
 }
 
-bool Compare2(const int& a,const int & b)    // The actual comparator function matching the CompFunctor signature
+bool Compare2(const int& a,const int & b) // The actual comparator function matching the CompFunctor signature
 {
   return a < b;
 }
 bool test4() {
   //create two priority_queue with different comparator
-  CP::priority_queue<int> q(Compare);
-  CP::priority_queue<int> q2(Compare2);
+  CP::priority_queue<int,CompFunctor> q(Compare);
+  CP::priority_queue<int,CompFunctor> q2(Compare2);
 
   //add data
   for (int i = 0;i < 5;i++) {
