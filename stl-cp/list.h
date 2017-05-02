@@ -163,8 +163,9 @@ class list
     }
 
     void print() {
-      std::cout << " Header address = " << (mHeader) << std::endl;
-      int i;
+      std::cout << " Size = " << mSize << std::endl;
+      std::cout << " Header address = " << (mHeader) << " (prev = " << mHeader->prev << " next = " << mHeader->next << ")" << std::endl;
+      int i = 0;
       iterator before;
       for (iterator it = begin();it!=end();before = it, it++,i++) {
         std::cout << "Node " << i << ": " << *it;
