@@ -151,8 +151,11 @@ class vector
     iterator insert(iterator it,const T& element) {
       size_t pos = it - begin();
       ensureCapacity(mSize + 1);
-      for(size_t i = mSize;i > pos;i--) {
-        mData[i] = mData[i-1];
+//      for(size_t i = mSize;i > pos;i--) {
+//        mData[i] = mData[i-1];
+//      }
+      for (size_t i = pos;i < mSize;i++) {
+        mData[i+1] = mData[i];
       }
       mData[pos] = element;
       mSize++;
