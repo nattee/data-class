@@ -40,24 +40,15 @@ class queue
     //-------------- constructor ----------
 
     // copy constructor
-    queue(const queue<T>& a) {
-      this->mData = new T[a.mCap]();
-      this->mCap = a.mCap;
-      this->mSize = a.mSize;
+    queue(const queue<T>& a) : mData( new T[a.mCap]() ), mCap( a.mCap ),
+      mSize( a.mSize ), mFront( a.mFront ) {
       for (size_t i = 0; i < a.mCap;i++) {
         mData[i] = a.mData[i];
       }
-      this->mFront = a.mFront;
     }
 
     // default constructor
-    queue() {
-      int cap = 1;
-      mData = new T[cap]();
-      mCap = cap;
-      mSize = 0;
-      mFront = 0;
-    }
+    queue() : mData(new T[1]()), mCap(1), mSize(0), mFront(0) { }
 
     // copy assignment operator
     queue<T>& operator=(queue<T> other) {
@@ -65,6 +56,7 @@ class queue
       swap(mSize,other.mSize);
       swap(mCap,other.mCap);
       swap(mData,other.mData);
+      swap(mFront,other.mFront);
       return *this;
     }
 
