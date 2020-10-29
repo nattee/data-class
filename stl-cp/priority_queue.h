@@ -60,7 +60,7 @@ class priority_queue
     //-------------- constructor ----------
 
     // copy constructor
-    priority_queue(priority_queue<T,Comp>& a) :
+    priority_queue(const priority_queue<T,Comp>& a) :
       mData(new T[a.mCap]()), mCap(a.mCap), mSize(a.mSize), mLess(a.mLess)
     {
       for (size_t i = 0; i < a.mCap;i++) {
