@@ -54,7 +54,7 @@ class stack
     }
 
     // copy assignment operator
-    stack<T>& operator=(stack<T> &other) {
+    stack<T>& operator=(stack<T> other) {
       using std::swap;
       swap(mSize,other.mSize);
       swap(mCap,other.mCap);
