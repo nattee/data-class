@@ -75,13 +75,13 @@ class list
     //-------------- constructor & copy operator ----------
 
     // copy constructor
-    list(list<T>& a) :
+    list(const list<T>& a ) :
       mHeader( new node() ), mSize( 0 ) {
-      for (iterator it = a.begin();it != a.end();it++) {
-        push_back(*it);
+      for (auto &x : *this) {
+        push_back(x);
       }
     }
-
+  
     // default constructor
     list() :
       mHeader( new node() ), mSize( 0 ) { }
